@@ -26,3 +26,11 @@ Les principales fonctions utilisées dans les deux programmes sont :
 - close() : ferme la connexion
 - encode() : transforme une chaîne de caractères en bytes
 - decode() : transforme les bytes reçus en texte
+## 3. Réécriture avec des classes
+
+Les scripts ont été réécrits en utilisant des classes :
+
+- Server : gère la création du serveur et la communication avec le client.
+- Client : gère la connexion au serveur et l’échange de messages.
+
+Cette approche permet d’organiser le code de manière plus structurée.
