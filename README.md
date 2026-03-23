@@ -43,3 +43,14 @@ Le serveur reçoit ces messages et les transmet aux autres clients connectés.
 
 Pour gérer plusieurs clients simultanément, le serveur utilise des threads.
 Chaque client est géré dans un thread séparé.
+### 4. Si on a plusieurs clients (N clients), quelles modifications faut-il faire ?
+
+Le serveur doit accepter plusieurs connexions et garder une liste des clients connectés.  
+Chaque client peut être géré dans un thread différent.  
+Quand un client A envoie un message, le serveur peut transmettre ce message au client B.
+
+### 5. Quels sont les inconvénients de cette architecture ?
+
+Le serveur est un point central.  
+S’il tombe en panne, la communication s’arrête.  
+Si beaucoup de clients se connectent, le serveur peut devenir lent ou surchargé.
