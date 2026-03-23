@@ -34,3 +34,12 @@ Les scripts ont été réécrits en utilisant des classes :
 - Client : gère la connexion au serveur et l’échange de messages.
 
 Cette approche permet d’organiser le code de manière plus structurée.
+## Chat entre deux clients
+
+Le serveur agit comme intermédiaire entre les clients.
+
+Chaque client se connecte au serveur et envoie des messages.
+Le serveur reçoit ces messages et les transmet aux autres clients connectés.
+
+Pour gérer plusieurs clients simultanément, le serveur utilise des threads.
+Chaque client est géré dans un thread séparé.
