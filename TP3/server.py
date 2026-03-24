@@ -6,6 +6,13 @@ PORT = 12345
 
 clients = {}
 
+def notify_disconnect(name):
+    for client_name, client_socket in clients.items():
+        try:
+            client_socket.send(f"{name} s'est déconnecté".encode())
+        except:
+            pass
+
 def handle_client(client_socket, name):
     while True:
         try:
@@ -13,7 +20,7 @@ def handle_client(client_socket, name):
             if not message:
                 break
 
-            dest, msg = message.split("|",1)
+            dest, msg = message.split("|", 1)
 
             if dest in clients:
                 clients[dest].send(f"{name}: {msg}".encode())
@@ -21,7 +28,10 @@ def handle_client(client_socket, name):
         except:
             break
 
-    del clients[name]
+    if name in clients:
+        del clients[name]
+
+    notify_disconnect(name)
     client_socket.close()
 
 def start_server():
@@ -39,7 +49,7 @@ def start_server():
 
         client_socket.send(("Clients connectés: " + ", ".join(clients.keys())).encode())
 
-        thread = threading.Thread(target=handle_client, args=(client_socket,name))
+        thread = threading.Thread(target=handle_client, args=(client_socket, name))
         thread.start()
 
 start_server()
