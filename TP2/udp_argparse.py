@@ -28,7 +28,9 @@ class Client(Application):
     def start(self):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        message = "Bonjour serveur"
+        import sys
+        print("Entrez un message : ")
+        message = sys.stdin.readline().strip()
         sock.sendto(message.encode(), (HOST, PORT))
 
         data, server = sock.recvfrom(1024)
