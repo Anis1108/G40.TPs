@@ -75,3 +75,7 @@ La bibliothèque argparse permet de lire les arguments donnés lors de l’exéc
 Elle permet d’utiliser un seul fichier de programme pour lancer soit le serveur soit le client selon l’argument fourni par l’utilisateur.
 Ainsi, le même script peut être utilisé pour exécuter les deux programmes.
 
+3. 
+
+Pour une application de chat, le protocole TCP est plus adapté.
+TCP garantit que les messages arrivent correctement et dans le bon ordre.
