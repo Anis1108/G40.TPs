@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 client_str = """
 <client>
     <nom>client1</nom>
-    <date_connexion>19/04/2021</date_connexion>
+    <date_connexion>19/04/2026</date_connexion>
     <lieu>Paris</lieu>
 </client>
 """
